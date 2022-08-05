@@ -3,8 +3,9 @@ import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, Ale
 import React, { useState } from 'react';
 import main from '../component/images/main.png';
 import se from '../component/images/se.png';
+import "react-native-gesture-handler";
 
-export default function App() {
+export default function App({ navigation }) {
     const onChangeId = (event) => setId(event);
     const onChangePw = (event) => setPw(event);
     const [id, setId] = useState("");
@@ -57,7 +58,7 @@ export default function App() {
                 </View>
 
                 <TouchableOpacity style={styles.mem}>
-                    <Text style={styles.text}>회원가입</Text>
+                    <Text style={styles.text} onPress={() => navigation.navigate('Membership')}>회원가입</Text>
                 </TouchableOpacity>
 
             </View>
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     },
     login: {
         fontSize: 26,
-        marginLeft: 62,
+        marginLeft: 50,
         marginTop: 20,
         fontWeight: "600",
     },
